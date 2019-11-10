@@ -14,6 +14,10 @@
 		0466E2C92377BA3000A4ADB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0466E2C72377BA3000A4ADB6 /* LaunchScreen.storyboard */; };
 		0466E2D42377BA3100A4ADB6 /* ToDo_FluxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466E2D32377BA3100A4ADB6 /* ToDo_FluxTests.swift */; };
 		0466E2DF2377BA3100A4ADB6 /* ToDo_FluxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466E2DE2377BA3100A4ADB6 /* ToDo_FluxUITests.swift */; };
+		0466E2EE2377BA9100A4ADB6 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466E2ED2377BA9100A4ADB6 /* ToDoItem.swift */; };
+		0466E2F22377BB2100A4ADB6 /* ToDoListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466E2F12377BB2100A4ADB6 /* ToDoListStore.swift */; };
+		0466E2F42377C34400A4ADB6 /* ActionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466E2F32377C34400A4ADB6 /* ActionContainer.swift */; };
+		0466E2F62377C75C00A4ADB6 /* ToDoDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466E2F52377C75C00A4ADB6 /* ToDoDispatcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		0466E2DA2377BA3100A4ADB6 /* ToDo FluxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ToDo FluxUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0466E2DE2377BA3100A4ADB6 /* ToDo_FluxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo_FluxUITests.swift; sourceTree = "<group>"; };
 		0466E2E02377BA3100A4ADB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0466E2ED2377BA9100A4ADB6 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
+		0466E2F12377BB2100A4ADB6 /* ToDoListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListStore.swift; sourceTree = "<group>"; };
+		0466E2F32377C34400A4ADB6 /* ActionContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionContainer.swift; sourceTree = "<group>"; };
+		0466E2F52377C75C00A4ADB6 /* ToDoDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoDispatcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,8 @@
 		0466E2BD2377BA2F00A4ADB6 /* ToDo Flux */ = {
 			isa = PBXGroup;
 			children = (
+				0466E2EF2377BB0000A4ADB6 /* Flux */,
+				0466E2EC2377BA6D00A4ADB6 /* Data Model */,
 				0466E2BE2377BA2F00A4ADB6 /* AppDelegate.swift */,
 				0466E2C02377BA2F00A4ADB6 /* ViewController.swift */,
 				0466E2C22377BA2F00A4ADB6 /* Main.storyboard */,
@@ -123,6 +133,24 @@
 				0466E2E02377BA3100A4ADB6 /* Info.plist */,
 			);
 			path = "ToDo FluxUITests";
+			sourceTree = "<group>";
+		};
+		0466E2EC2377BA6D00A4ADB6 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				0466E2ED2377BA9100A4ADB6 /* ToDoItem.swift */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		0466E2EF2377BB0000A4ADB6 /* Flux */ = {
+			isa = PBXGroup;
+			children = (
+				0466E2F12377BB2100A4ADB6 /* ToDoListStore.swift */,
+				0466E2F32377C34400A4ADB6 /* ActionContainer.swift */,
+				0466E2F52377C75C00A4ADB6 /* ToDoDispatcher.swift */,
+			);
+			path = Flux;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +284,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0466E2F42377C34400A4ADB6 /* ActionContainer.swift in Sources */,
 				0466E2C12377BA2F00A4ADB6 /* ViewController.swift in Sources */,
+				0466E2F22377BB2100A4ADB6 /* ToDoListStore.swift in Sources */,
 				0466E2BF2377BA2F00A4ADB6 /* AppDelegate.swift in Sources */,
+				0466E2F62377C75C00A4ADB6 /* ToDoDispatcher.swift in Sources */,
+				0466E2EE2377BA9100A4ADB6 /* ToDoItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
