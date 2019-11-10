@@ -10,21 +10,47 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let store = ToDoListStore.init(list: [ToDoItem(name: "Sample", state: .toDo)])
+    let store = ToDoListStore.init(list: [])
     
     var list: [ToDoItem] {
         return self.store.getToDoItems
     }
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "ToDo List"
         let addActionItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addToDoItem))
         self.navigationItem.rightBarButtonItem = addActionItem
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleStoreUpdate),
+                                               name: NSNotification.Name(rawValue: "update_list"),
+                                               object: nil)
+    }
+    
+    @objc private func handleStoreUpdate() {
+        self.tableView.reloadData()
     }
     
     @objc func addToDoItem() {
+        let alertController = UIAlertController(title: "Add New", message: "Add new ToDo Item", preferredStyle: .alert)
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = "Enter ToDo Name"
+        }
         
+        let saveAction = UIAlertAction(title: "Add", style: .default, handler: { alert -> Void in
+            let toDoTextField = alertController.textFields![0] as UITextField
+            let itemName = (toDoTextField.text?.isEmpty)! ? "New Item" : toDoTextField.text!
+            let newToDoItem = ToDoItem(sequence: self.list.count, name: itemName, state: .toDo)
+            ToDoDispatcher.dispatch(action: ActionContainer.add(newToDoItem))
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action : UIAlertAction!) -> Void in })
+        
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 

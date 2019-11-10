@@ -11,4 +11,5 @@ enum ActionContainer {
     case delete(ToDoItem)
     case complete(ToDoItem)
     case clearAll
+    case updateList
 }

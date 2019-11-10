@@ -13,6 +13,8 @@ class ToDoDispatcher {
         switch action {
         case .add(let item):
             NotificationCenter.default.post(name: Notification.Name("add_item"), object: item)
+        case .updateList:
+            NotificationCenter.default.post(name: Notification.Name("update_list"), object: nil)
         default:
             break
         }

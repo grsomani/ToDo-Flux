@@ -12,6 +12,7 @@ enum ToDoState {
 }
 
 struct ToDoItem {
+    var sequence: Int
     var name: String
     var state: ToDoState = .toDo
 }
