@@ -25,6 +25,10 @@ class ToDoListStore {
                                                selector: #selector(addItem(notification:)),
                                                name: NSNotification.Name(rawValue: "add_item"),
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(delete(notification:)),
+                                               name: NSNotification.Name(rawValue: "delete_item"),
+                                               object: nil)
     }
     
     @objc private func addItem(notification: Notification) {
@@ -32,6 +36,14 @@ class ToDoListStore {
             return
         }
         self.toDoList.append(newItem)
+        ToDoDispatcher.dispatch(action: .updateList)
+    }
+    
+    @objc private func delete(notification: Notification) {
+        guard let newItem = notification.object as? ToDoItem else {
+            return
+        }
+        self.toDoList.remove(at: newItem.sequence)
         ToDoDispatcher.dispatch(action: .updateList)
     }
 }

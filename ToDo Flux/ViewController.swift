@@ -66,5 +66,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = toDoItem.name
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            let toDoItem = self.list[indexPath.row]
+            ToDoDispatcher.dispatch(action: .delete(toDoItem))
+        }
+    }
 }
 
